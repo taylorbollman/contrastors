@@ -21,8 +21,8 @@ onnxconverter-common
 onnx
 evaluate
 scipy
-scikit-learn
-apache_beam 
+scikit-learn #sep
+apache_beam #sep
 mwparserfromhell
 pydantic<2.0.0
 matplotlib
