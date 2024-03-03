@@ -1,0 +1,29 @@
+
+
+
+Nomic:    
+{'access_key': '5f2cf4544f96ace61569c6b1d67d035f', 'secret_key': '14ff3fbd3c14baf82d0a664edc3cd4fa80a47ce7b2c9bf07657f7dbc2e113727'}
+
+os.environ['HUGGINGFACE_TOKEN'] = "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"
+os.environ['WANDB_API_KEY'] = "d365f173ba9409be7023db17cc3b1d89818f8e6e"
+os.environ['WANDB_NOTEBOOK_NAME'] = "/teamspace/studios/this_studio/.lightning_studio"
+wandb.login(key=os.environ['WANDB_API_KEY'])
+
+
+aws s3 ls --endpoint-url=https://9fa58365a1a3d032127970d0bd9a1290.r2.cloudflarestorage.com/ s3://contrastive
+
+
+aws s3 sync s3://contrastive/data/ ./data/ --endpoint-url=https://9fa58365a1a3d032127970d0bd9a1290.r2.cloudflarestorage.com/
+aws s3 ls --endpoint-url=https://9fa58365a1a3d032127970d0bd9a1290.r2.cloudflarestorage.com/ s3://contrastive-index-filtered
+
+
+aws s3 sync s3://contrastive/data/ /home/paperspace/tbnomicdata --endpoint-url=https://9fa58365a1a3d032127970d0bd9a1290.r2.cloudflarestorage.com/
+
+
+aws s3 sync --endpoint-url=https://9fa58365a1a3d032127970d0bd9a1290.r2.cloudflarestorage.com/ s3://contrastive-index-filtered
+
+
+aws s3 sync s3://contrastive/agnews_cleaned/ /home/paperspace/tbnomicdata/agnews_cleaned/ --endpoint-url=https://9fa58365a1a3d032127970d0bd9a1290.r2.cloudflarestorage.com/
+
+aws s3 sync s3://contrastive /home/paperspace/tbnomicdata/unfiltered --endpoint-url=https://9fa58365a1a3d032127970d0bd9a1290.r2.cloudflarestorage.com/
+aws s3 sync s3://contrastive-index-filtered /home/paperspace/tbnomicdata/filtered --endpoint-url=https://9fa58365a1a3d032127970d0bd9a1290.r2.cloudflarestorage.com/
